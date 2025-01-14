@@ -58,6 +58,7 @@ int main()
         delete[] mat_res[r];
     }
     delete[] mat_res;
+    file.close();
     return 0;
 }
 
