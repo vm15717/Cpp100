@@ -15,13 +15,13 @@ int main()
     }
 
     // Read dimensions and matrices
-    std::vector<std::vector<int>> dims(2, std::vector<int>(2));
+    //std::vector<std::vector<int>> dims(2, std::vector<int>(2));
     std::vector<std::vector<std::vector<int>>> mats(2);
 
     for (int i = 0; i < 2; i++) {
         file >> rows >> cols;
-        dims[i][0] = rows;
-        dims[i][1] = cols;
+        //dims[i][0] = rows;
+        //dims[i][1] = cols;
 
         // Resize and populate matrix
         std::vector<std::vector<int>> mat(rows, std::vector<int>(cols));
@@ -42,13 +42,13 @@ int main()
     disp_matrix(mats[1]);
 
     // Check compatibility for multiplication
-    if (dims[0][1] != dims[1][0]) {
+    if (mats[0][0].size() != mats[1].size()) {
         std::cout << "Cannot multiply matrices: incompatible dimensions" << std::endl;
         return -1;
     }
 
     // Perform matrix multiplication
-    std::vector<std::vector<int>> mat_res(dims[0][0], std::vector<int>(dims[1][1], 0));
+    std::vector<std::vector<int>> mat_res(mats.size(), std::vector<int>(mats[1][0].size(), 0));
     mat_mul(mats[0], mats[1], mat_res);
 
     // Display result
