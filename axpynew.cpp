@@ -16,7 +16,7 @@ int main()
 
     // Read dimensions and matrices
     std::vector<std::vector<int>> dims(2, std::vector<int>(2));
-    std::vector<std::vector<std::vector<int>>> mats;
+    std::vector<std::vector<std::vector<int>>> mats(2);
 
     for (int i = 0; i < 2; i++) {
         file >> rows >> cols;
@@ -30,7 +30,8 @@ int main()
                 file >> mat[r][c];
             }
         }
-        mats.push_back(mat);
+        mats[i]= mat;
+        //mats.push_back(mat);
     }
     file.close();
 
